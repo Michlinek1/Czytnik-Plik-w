@@ -60,11 +60,7 @@ def EdytujPlik():
     pliki.set(plikiczytacz[0])
     opcje = OptionMenu(Edytuj, pliki, *plikiczytacz)
     opcje.pack()
-    def UruchomPlik():
-        subprocess.call(["notepad.exe", pliki.get()])
-        Edytuj.destroy()
-    
-    przyciskWczytaj = Button(Edytuj, text="Wczytaj", command=UruchomPlik)
+    przyciskWczytaj = Button(Edytuj, text="Wczytaj", command= lambda:  subprocess.call(["notepad.exe", pliki.get()]))
     przyciskWczytaj.pack()
     
 przycisk = Button(root, text="Wczytaj", command=wczytaj)
